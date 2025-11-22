@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script defer src="./script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="./style.css" />
+  <title>Document</title>
+</head>
+
+<body class="w-full min-h-screen h-full">
+  <div class="max-w-[1440px] w-full mx-auto">
+    <div class="flex flex-row pl-34 pr-7 justify-between py-5">
+      <h2 class="w-[118px] h-[24px] py-2 inter-bold">Exclusive</h2>
+      <div class="flex flex-row gap-3 items-center">
+        <div class="w-[260px] h-[40px] flex flex-row bg-gray-300 py-1 px-2">
+          <input type="text" placeholder="What are you looking for?" />
+          <img class="w-6 h-6 ml-7 mt-1" src="./asset/icons/SearchBar.svg" alt="search item" />
+        </div>
+        <button id="basketBtn"
+          class="w-8 h-8 transition-transform duration-300 hover:scale-110 hover:bg-gray-200 rounded-lg flex justify-center items-center">
+          <img src="./asset/icons/Buy.svg" alt="Buy" />
+        </button>
+        <button id="loginBtn"
+          class="w-8 h-8 transition-transform duration-300 hover:scale-110 hover:bg-gray-200 rounded-lg flex justify-center items-center">
+          <img src="./asset/icons/user.svg" alt="User" />
+        </button>
+      </div>
+    </div>
+    <hr class="border-t border-gray-400" />
+    <div class="w-125 h-78 ml-43 mt-40">
+      <div class="flex flex-col">
+        <div class="w-30 h-10 flex flex-row items-center gap-3">
+          <div class="w-5 h-10 bg-red-500 rounded-lg"></div>
+          <p class="inter-bold text-red-500">Categories</p>
+        </div>
+        <h3 class="pt-5 inter-bold text-xl">Browse By Category</h3>
+      </div>
+      <div class="h-[145px] flex flex-row pt-15 gap-[30px]">
+        <div class="w-[170px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400">
+          <img src="./asset/icons/Cellphone.svg" alt="Cellphone" />
+          <h2>Tech</h2>
+        </div>
+        <div class="w-[170px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400">
+          <img src="./asset/icons/Computer.svg" alt="Computer" />
+          <h2>Fashion</h2>
+        </div>
+        <div class="w-[170px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400">
+          <img class="w-14 h-14" src="./asset/icons/SmartWatch.svg" alt="SmartWatch" />
+          <h2>Furniture</h2>
+        </div>
+      </div>
+    </div>
+    <hr class="w-[1170px] border-t mx-33 border-gray-400" />
+    <div class="w-[1170] h-[990] border border-gray-200 rounded-lg mt-16 mx-33">
+      <div class="flex flex-col">
+        <div class="flex flex-row pl-5 pt-5 items-center gap-3">
+          <div class="w-5 h-10 bg-red-500 rounded-lg"></div>
+          <p class="inter-bold text-red-500">Our Products</p>
+        </div>
+        <h3 class="pt-5 pl-5 inter-bold text-xl">Explore Our Products</h3>
+      </div>
+
+      <div id="productContainer" class="grid grid-cols-4 gap-5 p-5">
+      </div>
+      <div class="flex justify-center pb-2">
+        <button id="viewMoreBtn" class="w-45 h-16 bg-red-500 bottom-2 text-white rounded-lg">View More</button>
+      </div>
+    </div>
+    <div class="flex flex-row gap-22 mt-58 mb-35 mx-62">
+      <div class="w-[260px] h-[161px] flex flex-col items-center">
+        <img class="w-20 h-20 pb-5" src="./asset/icons/Services.svg" alt="Delivery.svg" />
+        <h2 class="inter-bold pb-2">FREE AND FAST DELIVERY</h2>
+        <p class="text-sm">Free delivery for all orders over $140</p>
+      </div>
+      <div class="w-[260px] h-[161px] flex flex-col items-center">
+        <img class="w-20 h-20 pb-5" src="./asset/icons/Delivery.svg" alt="Customer" />
+        <h2 class="inter-bold pb-2">24/7 CUSTOMER SERVICE</h2>
+        <p class="text-sm">Friendly 24/7 customer support</p>
+      </div>
+      <div class="w-[260px] h-[161px] flex flex-col items-center">
+        <img class="w-20 h-20 pb-5" src="./asset/icons/Services (2).svg" alt="Money Safe" />
+        <h2 class="inter-bold pb-2">MONEY BACK GUARANTEE</h2>
+        <p class="text-sm">We return money within 30 days</p>
+      </div>
+    </div>
+    <div class="w-[1440px] h-[440px] flex flex-col items-center justify-center bg-black">
+      <div class="w-[1170px] h-[210px] text-white flex flex-row items-start gap-19">
+        <div class="w-57 h-44 ml-2">
+          <h2 class="inter-bold text-2xl pb-5">Exclusive</h2>
+          <h3 class="inter-semibold text-lg pb-5">Subscribe</h3>
+          <p class="pb-4">Get 10% off your first order</p>
+          <div class="w-[230px] h-12 flex flex-row justify-between items-center border border-white px-2">
+            <input class="bg-transparent text-white placeholder:text-gray-300 focus:outline-none border-none flex-1"
+              type="email" placeholder="Enter your email" />
+            <img class="w-6 h-6" src="./asset/icons/icon-send.svg" alt="Send icon" />
+          </div>
+        </div>
+        <div class="w-[175px] h-[180px]">
+          <h2 class="inter-bold text-2xl pb-5">Support</h2>
+          <p class="pb-4">111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
+          <p class="pb-4">exclusive@gmail.com</p>
+          <p class="pb-4">+88015-88888-9999</p>
+        </div>
+        <div class="w-[123px] h-[156px]">
+          <h2 class="inter-bold text-2xl pb-5">Account</h2>
+          <p class="pb-4">My Account</p>
+          <p class="pb-4">Login/Register</p>
+          <p class="pb-4">Basket</p>
+        </div>
+        <div class="w-[119px] h-[116px]">
+          <h2 class="inter-bold text-2xl pb-5">Quick Link</h2>
+          <p class="pb-4">Privacy Policy</p>
+          <p class="pb-4">Terms Of Use</p>
+        </div>
+        <div class="w-[200px] h-[170px]">
+          <h2 class="inter-bold text-2xl pb-5">Download App</h2>
+          <p class="text-xs pb-4">Save $3 with App New User Only</p>
+          <div class="w-[198px] h-[84px] flex flex-row items-center gap-2">
+            <img class="w-18 h-18 gap-1" src="./asset/images/Qr Code.svg" alt="Qr-Code" />
+            <div class="w-[110px] h-21 flex flex-col">
+              <img class="w-[110px] h-20" src="./asset/images/GooglePlay.png" alt="GooglePlay" />
+              <img class="w-[110px] h-20" src="./asset/images/AppStore.png" alt="AppStore" />
+            </div>
+          </div>
+          <div class="flex flex-row pt-3 gap-6">
+            <img class="w-6 h-6" src="./asset/icons/Facebook.svg" alt="Facebook" />
+            <img class="w-6 h-6" src="./asset/images/Icon-Twitter.png" alt="Twitter" />
+            <img class="w-6 h-6" src="./asset/images/icon-instagram.png" alt="Instagram" />
+            <img class="w-6 h-6" src="./asset/images/Icon-Linkedin.png" alt="Linkedin" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="/Project/style.css">
+    <title>Document</title>
+</head>
+
+<body class="w-full min-h-screen h-full">
+    <div class="max-w-[1440px] w-full mx-auto">
+        <div class="flex flex-row pl-34 pr-7 justify-between py-5">
+            <h2 class="w-[118px] h-[24px] py-2 text-2xl inter-bold">Exclusive</h2>
+            <div class="flex flex-row gap-3">
+                <div class="w-[260px] h-[40px] flex flex-row bg-gray-300 py-1 px-2">
+                    <input type="text" placeholder="What are you looking for?" />
+                    <img class="w-6 h-6 ml-7 mt-1" src="/Project/asset/icons/SearchBar.svg" alt="search item" />
+                </div>
+                <button id="basketBtn"
+                    class="w-8 h-8 transition-transform duration-300 hover:scale-110 hover:bg-gray-200 active:scale-90 active:bg-gray-300 rounded-lg flex justify-center items-center">
+                    <img src="../asset/icons/Buy.svg" alt="Buy" />
+                </button>
+                <button id="loginBtn"
+                    class="w-8 h-8 transition-transform duration-300 hover:scale-110 hover:bg-gray-200 active:scale-90 active:bg-gray-300 rounded-lg flex justify-center items-center">
+                    <img src="../asset/icons/user.svg" alt="User" />
+                </button>
+            </div>
+        </div>
+        <hr class="border-t border-gray-400 pb-25" />
+        <div class="flex flex-row pl-38 pr-41 gap-5">
+            <div id="smallImgs" class="flex flex-col">
+            </div>
+            <div id="mainImg" class="w-125 h-150">
+            </div>
+            <div class="flex flex-col flex-1">
+                <h2 id="title" class="pb-4 inter-bold text-xl"></h2>
+                <div class="flex flex-row items-center pb-4">
+                    <div id="hasStockFlag" class="w-1 h-5 rounded-lg"></div>
+                    <h2 id="hasStock" class="pl-2 inter-bold"></h2>
+                </div>
+                <h1 id="price" class="pb-6 inter-bold text-xl"></h1>
+                <h3 id="description" class="pb-6 text-lg inter-bold"></h3>
+                <hr class="border-t border-gray-500" />
+                <div class="flex flex-row mt-[124px] gap-4">
+                    <div class="w-40 h-11 flex flex-row border border-gray-500">
+                        <button id="minusBtn"
+                            class="w-10 flex justify-center items-center border-r transition-all duration-150 active:bg-red-600 active:scale-90"><img
+                                src="./asset/icon-minus.png" alt="minus.png"></button>
+                        <h2 id="count" class="w-20 flex justify-center items-center">1</h2>
+                        <button id="plusBtn"
+                            class="w-10 bg-red-500 flex justify-center items-center transition-all duration-150 active:bg-green-600 active:scale-90"><img
+                                src="./asset/icon-plus.png" alt="plus.png"></button>
+
+                    </div>
+                    <button id="addToBasketBtn" class="w-[224px] h-[44px] bg-red-500 text-white rounded-lg">Add to
+                        Basket</button>
+                </div>
+                <div class="w-100 h-45 flex flex-col border border-gray-500 items-center mt-19">
+                    <div class="h-22 border-b flex flex-row items-center gap-2">
+                        <img class="w-10 h-10" src="./asset/icon-delivery.png" alt="delivery.png">
+                        <div class="flex flex-col">
+                            <h1 class="inter-bold text-lg pb-1">Free Delivery</h1>
+                            <h1 class="underline">Enter your postal code for Delivery Availability</h1>
+                        </div>
+                    </div>
+                    <div class="h-22 flex flex-row items-center gap-2 pr-12 ">
+                        <img class="w-10 h-10" src="./asset/Icon-return.png" alt="return.png">
+                        <div class="flex flex-col">
+                            <h1 class="inter-bold text-lg pb-1">Return Delivery</h1>
+                            <h1>Free 30 Days Delivery Returns. <span class="underline">Details</span></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="ml-38 mt-45">
+            <div class="flex flex-row gap-3 items-center pb-15">
+                <div class="w-5 h-10 bg-red-500 rounded-sm"></div>
+                <h1 class="text-red-600 inter-bold">Related Items</h1>
+            </div>
+            <div class="relatedProductContainer" class="grid grid-cols-4 gap-5 p-5">
+            </div>
+        </div>
+        <div class="w-[1440px] h-[440px] flex flex-col items-center justify-center bg-black">
+            <div class="w-[1170px] h-[210px] text-white flex flex-row items-start gap-19">
+                <div class="w-57 h-44 ml-2">
+                    <h2 class="inter-bold text-2xl pb-5">Exclusive</h2>
+                    <h3 class="inter-semibold text-lg pb-5">Subscribe</h3>
+                    <p class="pb-4">Get 10% off your first order</p>
+                    <div class="w-[230px] h-12 flex flex-row justify-between items-center border border-white px-2">
+                        <input
+                            class="bg-transparent text-white placeholder:text-gray-300 focus:outline-none border-none flex-1"
+                            type="email" placeholder="Enter your email" />
+                        <img class="w-6 h-6" src="/Project/asset/icons/icon-send.svg" alt="Send icon" />
+                    </div>
+                </div>
+                <div class="w-[175px] h-[180px]">
+                    <h2 class="inter-bold text-2xl pb-5">Support</h2>
+                    <p class="pb-4">111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
+                    <p class="pb-4">exclusive@gmail.com</p>
+                    <p class="pb-4">+88015-88888-9999</p>
+                </div>
+                <div class="w-[123px] h-[156px]">
+                    <h2 class="inter-bold text-2xl pb-5">Account</h2>
+                    <p class="pb-4">My Account</p>
+                    <p class="pb-4">Login/Register</p>
+                    <p class="pb-4">Basket</p>
+                </div>
+                <div class="w-[119px] h-[116px]">
+                    <h2 class="inter-bold text-2xl pb-5">Quick Link</h2>
+                    <p class="pb-4">Privacy Policy</p>
+                    <p class="pb-4">Terms Of Use</p>
+                </div>
+                <div class="w-[200px] h-[170px]">
+                    <h2 class="inter-bold text-2xl pb-5">Download App</h2>
+                    <p class="text-xs pb-4">Save $3 with App New User Only</p>
+                    <div class="w-[198px] h-[84px] flex flex-row items-center gap-2">
+                        <img class="w-18 h-18 gap-1" src="/Project/asset/images/Qr Code.svg" alt="Qr-Code" />
+                        <div class="w-[110px] h-21 flex flex-col">
+                            <img class="w-[110px] h-20" src="/Project/asset/images/GooglePlay.png" alt="GooglePlay" />
+                            <img class="w-[110px] h-20" src="/Project/asset/images/AppStore.png" alt="AppStore" />
+                        </div>
+                    </div>
+                    <div class="flex flex-row pt-3 gap-6">
+                        <img class="w-6 h-6" src="/Project/asset/icons/Facebook.svg" alt="Facebook" />
+                        <img class="w-6 h-6" src="/Project/asset/images/Icon-Twitter.png" alt="Twitter" />
+                        <img class="w-6 h-6" src="/Project/asset/images/icon-instagram.png" alt="Instagram" />
+                        <img class="w-6 h-6" src="/Project/asset/images/Icon-Linkedin.png" alt="Linkedin" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="/Project/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <body class="w-full min-h-screen h-full">
+        <div class="max-w-[1440px] w-full mx-auto">
+            <div class="flex flex-row pl-34 pr-7 justify-between py-5">
+                <h2 class="w-[118px] h-[24px] py-2 text-2xl inter-bold">Exclusive</h2>
+                <div class="flex flex-row gap-3">
+                    <div class="w-[260px] h-[40px] flex flex-row bg-gray-300 py-1 px-2">
+                        <input type="text" placeholder="What are you looking for?" />
+                        <img class="w-6 h-6 ml-7 mt-1" src="/Project/asset/icons/SearchBar.svg" alt="search item" />
+                    </div>
+                    <img src="/Project/asset/icons/Buy.svg" alt="Buy" />
+                    <img src="/Project/asset/icons/user.svg" alt="User" />
+                </div>
+            </div>
+            <hr class="border-t border-gray-400 pb-[73px]" />
+            <div class="w-[1172px] h-[820px] ml-[135px] mb-[157px] border border-gray-400">
+                <div
+                    class="w-[1172px] h-[56px] mb-15 flex flex-row justify-between items-center pl-10 inter-bold text-2xl">
+                    <h1>Basket</h1>
+                    <button
+                        class="w-[234px] h-[56px] flex justify-center items-center border border-gray-300 rounded-lg">Clear
+                        All</button>
+                </div>
+                <div id="productContainer" class="grid grid-cols-4 gap-5 p-5">
+                </div>
+            </div>
+            <div class="w-[1440px] h-[440px] flex flex-col items-center justify-center bg-black">
+                <div class="w-[1170px] h-[210px] text-white flex flex-row items-start gap-19">
+                    <div class="w-57 h-44 ml-2">
+                        <h2 class="inter-bold text-2xl pb-5">Exclusive</h2>
+                        <h3 class="inter-semibold text-lg pb-5">Subscribe</h3>
+                        <p class="pb-4">Get 10% off your first order</p>
+                        <div class="w-[230px] h-12 flex flex-row justify-between items-center border border-white px-2">
+                            <input
+                                class="bg-transparent text-white placeholder:text-gray-300 focus:outline-none border-none flex-1"
+                                type="email" placeholder="Enter your email" />
+                            <img class="w-6 h-6" src="/Project/asset/icons/icon-send.svg" alt="Send icon" />
+                        </div>
+                    </div>
+                    <div class="w-[175px] h-[180px]">
+                        <h2 class="inter-bold text-2xl pb-5">Support</h2>
+                        <p class="pb-4">111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
+                        <p class="pb-4">exclusive@gmail.com</p>
+                        <p class="pb-4">+88015-88888-9999</p>
+                    </div>
+                    <div class="w-[123px] h-[156px]">
+                        <h2 class="inter-bold text-2xl pb-5">Account</h2>
+                        <p class="pb-4">My Account</p>
+                        <p class="pb-4">Login/Register</p>
+                        <p class="pb-4">Basket</p>
+                    </div>
+                    <div class="w-[119px] h-[116px]">
+                        <h2 class="inter-bold text-2xl pb-5">Quick Link</h2>
+                        <p class="pb-4">Privacy Policy</p>
+                        <p class="pb-4">Terms Of Use</p>
+                    </div>
+                    <div class="w-[200px] h-[170px]">
+                        <h2 class="inter-bold text-2xl pb-5">Download App</h2>
+                        <p class="text-xs pb-4">Save $3 with App New User Only</p>
+                        <div class="w-[198px] h-[84px] flex flex-row items-center gap-2">
+                            <img class="w-18 h-18 gap-1" src="/Project/asset/images/Qr Code.svg" alt="Qr-Code" />
+                            <div class="w-[110px] h-21 flex flex-col">
+                                <img class="w-[110px] h-20" src="/Project/asset/images/GooglePlay.png"
+                                    alt="GooglePlay" />
+                                <img class="w-[110px] h-20" src="/Project/asset/images/AppStore.png" alt="AppStore" />
+                            </div>
+                        </div>
+                        <div class="flex flex-row pt-3 gap-6">
+                            <img class="w-6 h-6" src="/Project/asset/icons/Facebook.svg" alt="Facebook" />
+                            <img class="w-6 h-6" src="/Project/asset/images/Icon-Twitter.png" alt="Twitter" />
+                            <img class="w-6 h-6" src="/Project/asset/images/icon-instagram.png" alt="Instagram" />
+                            <img class="w-6 h-6" src="/Project/asset/images/Icon-Linkedin.png" alt="Linkedin" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
