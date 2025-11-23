@@ -2,6 +2,7 @@ const productContainer = document.getElementById("productContainer");
 const viewMoreBtn = document.getElementById("viewMoreBtn");
 const basketBtn = document.getElementById("basketBtn");
 const loginBtn = document.getElementById("loginBtn");
+const searchInput = document.getElementById("searchInput");
 let productLimit = 8;
 
 const checkAccessToken = async () => {
@@ -72,6 +73,42 @@ const addToBasket = async (product, button) => {
   }
 };
 
+const searchProducts = async (searchTerm) => {
+  try {
+    const response = await fetch(
+      `https://ilkinibadov.com/api/v1/search?searchterm=${searchTerm}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const data = await response.json();
+    console.log("Search results:", data);
+
+    return data.content || [];
+  } catch (error) {
+    console.error("Search API error:", error);
+    return [];
+  }
+};
+
+searchInput.addEventListener("input", async () => {
+  const value = searchInput.value.trim();
+
+  if (value.length < 3) {
+    init();
+    return;
+  }
+
+  const products = await searchProducts(value);
+  renderProducts(products);
+});
+
+
+
 const isAuthenticated = async () => {
   const hasToken = await checkAccessToken();
   console.log("Has token:", hasToken);
@@ -97,12 +134,11 @@ const goLogin = async () => {
 
 loginBtn.addEventListener("click", goLogin);
 
-const getProducts = async () => {
+const getProducts = async (category = "") => {
   try {
-    const response = await fetch(
-      `https://ilkinibadov.com/api/v1/products?page=1&limit=${productLimit}`
-    );
-
+    const url = `https://ilkinibadov.com/api/v1/products?page=1&limit=${productLimit}${category ? `&category=${category}` : ""
+      }`;
+    const response = await fetch(url);
     const data = await response.json();
     console.log("Fetched products:", data.products);
     return data.products;
@@ -186,7 +222,7 @@ const renderProducts = (products) => {
     });
 
     image.src =
-      product.images?.[0] || product?.images || "https://picsum.photos/150";
+      product.images?.[0] || product?.images || product.image || "https://picsum.photos/150";
 
     title.innerText = product.title;
     price.innerText = `$${product.price}`;
@@ -202,6 +238,16 @@ const renderProducts = (products) => {
   });
 };
 
+const categorieBtns = document.querySelectorAll(".category-btn");
+categorieBtns.forEach(button => {
+  button.addEventListener("click", async () => {
+    const category = button.getAttribute("data-category");
+    productLimit = 8;
+    const products = await getProducts(category);
+    renderProducts(products);
+  });
+});
+
 viewMoreBtn.addEventListener("click", async () => {
   productLimit += 8;
   const newProducts = await getProducts();
@@ -213,16 +259,3 @@ const init = async () => {
   renderProducts(products);
 };
 init();
-
-const categories = [
-  "electronics",
-  "clothing",
-  "books",
-  "furniture",
-  "toys",
-  "groceries",
-  "beauty",
-  "sports",
-  "automotive",
-  "other",
-];

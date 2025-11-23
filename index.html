@@ -16,7 +16,7 @@
       <h2 class="w-[118px] h-[24px] py-2 inter-bold">Exclusive</h2>
       <div class="flex flex-row gap-3 items-center">
         <div class="w-[260px] h-[40px] flex flex-row bg-gray-300 py-1 px-2">
-          <input type="text" placeholder="What are you looking for?" />
+          <input id="searchInput" type="text" placeholder="What are you looking for?" />
           <img class="w-6 h-6 ml-7 mt-1" src="./asset/icons/SearchBar.svg" alt="search item" />
         </div>
         <button id="basketBtn"
@@ -39,74 +39,85 @@
         <h3 class="pt-5 inter-bold text-xl">Browse By Category</h3>
       </div>
       <div class="w-[1140px] h-[145px] flex flex-row justify-between pt-15 pl-5">
-        <button class="w-[100px] h-[145px]">
-          <div class="w-[100px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400
-                      transition-all duration-200
-                      hover:scale-105 hover:shadow-lg hover:border-blue-500
-                      active:scale-95 active:shadow-inner">
+        <button id="electronics" class="category-btn w-[100px] h-[145px] transition-all duration-200
+        hover:scale-105 hover:shadow-lg hover:border-blue-500
+        active:scale-95 active:shadow-inner" data-category="electronics">
+          <div class="w-[100px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400">
             <img class="w-14 h-14" src="./asset/icons/electronics.svg" alt="Cellphone" />
             <h2 class="text-sm font-medium">Electronics</h2>
           </div>
         </button>
-        <button class="w-[100px] h-[145px]">
-          <div class="w-[100px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400
-                      transition-all duration-200
-                      hover:scale-105 hover:shadow-lg hover:border-blue-500
-                      active:scale-95 active:shadow-inner">">
+        <button class="category-btn w-[100px] h-[145px] transition-all duration-200
+        hover:scale-105 hover:shadow-lg hover:border-blue-500
+        active:scale-95 active:shadow-inner" data-category="clothing">
+          <div class="w-[100px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400">
             <img class="w-14 h-14" src="./asset/icons/clothing.svg" alt="Computer" />
             <h2>Clothing</h2>
           </div>
         </button>
-        <button class="w-[100px] h-[145px]">
-          <div class="w-[100px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400
-          transition-all duration-200
-          hover:scale-105 hover:shadow-lg hover:border-blue-500
-          active:scale-95 active:shadow-inner">">
+        <button class="category-btn w-[100px] h-[145px] transition-all duration-200
+        hover:scale-105 hover:shadow-lg hover:border-blue-500
+        active:scale-95 active:shadow-inner" data-category="books">
+          <div class="w-[100px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400">
             <img class="w-14 h-14" src="./asset/icons/books.svg" alt="SmartWatch" />
             <h2>Books</h2>
           </div>
         </button>
-        <button class="w-[100px] h-[145px]">
+        <button class="category-btn w-[100px] h-[145px] transition-all duration-200
+        hover:scale-105 hover:shadow-lg hover:border-blue-500
+        active:scale-95 active:shadow-inner" data-category="furniture">
           <div class="w-[100px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400">
             <img class="w-14 h-14" src="./asset/icons/furniture.svg" alt="SmartWatch" />
             <h2>Furniture</h2>
           </div>
         </button>
-        <button class="w-[100px] h-[145px]">
+        <button class="category-btn w-[100px] h-[145px] transition-all duration-200
+        hover:scale-105 hover:shadow-lg hover:border-blue-500
+        active:scale-95 active:shadow-inner" data-category="toys">
           <div class="w-[100px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400">
             <img class="w-14 h-14" src="./asset/icons/toys.svg" alt="SmartWatch" />
             <h2>Toys</h2>
           </div>
         </button>
-        <button class="w-[100px] h-[145px]">
+        <button class="category-btn w-[100px] h-[145px] transition-all duration-200
+        hover:scale-105 hover:shadow-lg hover:border-blue-500
+        active:scale-95 active:shadow-inner" data-category="groceries">
           <div class="w-[100px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400">
             <img class="w-14 h-14" src="./asset/icons/grocery.svg" alt="SmartWatch" />
             <h2>Groceries</h2>
           </div>
         </button>
-        <button class="w-[100px] h-[145px]">
+        <button class="category-btn w-[100px] h-[145px] transition-all duration-200
+        hover:scale-105 hover:shadow-lg hover:border-blue-500
+        active:scale-95 active:shadow-inner" data-category="beauty">
           <div class="w-[100px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400">
             <img class="w-14 h-14" src="./asset/icons/beauty.svg" alt="SmartWatch" />
             <h2>Beauty</h2>
           </div>
         </button>
-        <button class="w-[100px] h-[145px]">
+        <button class="category-btn w-[100px] h-[145px] transition-all duration-200
+        hover:scale-105 hover:shadow-lg hover:border-blue-500
+        active:scale-95 active:shadow-inner" data-category="sports">
           <div class="w-[100px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400">
             <img class="w-14 h-14" src="./asset/icons/sports.svg" alt="SmartWatch" />
             <h2>Sports</h2>
           </div>
         </button>
-        <button class="w-[100px] h-[145px]">
+        <button class="category-btn w-[100px] h-[145px] transition-all duration-200
+        hover:scale-105 hover:shadow-lg hover:border-blue-500
+        active:scale-95 active:shadow-inner" data-category="automotive">
           <div class="w-[100px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400">
             <img class="w-14 h-14" src="./asset/icons/automotive.svg" alt="SmartWatch" />
             <h2>Automotive</h2>
           </div>
           </button">
-          <button class="w-[100px] h-[145px]">
+          <button class="category-btn w-[100px] h-[145px] transition-all duration-200
+          hover:scale-105 hover:shadow-lg hover:border-blue-500
+          active:scale-95 active:shadow-inner" data-category="">
             <div
               class="w-[100px] h-[145px] flex flex-col justify-center items-center rounded-md border border-gray-400">
               <img class="w-14 h-14" src="./asset/icons/other.svg" alt="SmartWatch" />
-              <h2>Other</h2>
+              <h2>All</h2>
             </div>
           </button>
 

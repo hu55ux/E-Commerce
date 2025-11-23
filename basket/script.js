@@ -145,6 +145,8 @@ const removeFromBasket = async (productId) => {
 
 const renderProducts = async () => {
   const products = await getProducts();
+  totalCount.innerText = "Basket: " + products.length;
+  totalPrice.innerText = "Total: " + products.reduce((sum, p) => sum + parseFloat(p.total), 0).toFixed(2);
   productContainer.innerHTML = "";
   if (!products || products.length === 0) {
     const emptyMessage = document.createElement("h2");
@@ -166,7 +168,6 @@ const renderProducts = async () => {
     const image = document.createElement("img");
     const title = document.createElement("h2");
     const price = document.createElement("h3");
-    const count = document.createElement("h3");
     const button = document.createElement("button");
     const removeimg = document.createElement("img");
 
@@ -239,16 +240,14 @@ const renderProducts = async () => {
     image.src = product.image || "https://picsum.photos/150";
 
     title.innerText = product.title;
-    price.innerText = `${
-      product.currency +
+    price.innerText = `${product.currency +
       " " +
       product.pricePerItem +
       " x " +
       product.count +
       " = " +
       product.total
-    }`;
-
+      }`;
     imageCard.append(image);
     imageCard.append(button);
 
