@@ -42,20 +42,22 @@
                     <h2 id="hasStock" class="pl-2 inter-bold"></h2>
                 </div>
                 <h1 id="price" class="pb-6 inter-bold text-xl"></h1>
-                <h3 id="description" class="pb-6 text-lg inter-bold"></h3>
+                <h3 id="description" class="pb-2 text-lg inter-bold"></h3>
                 <hr class="border-t border-gray-500" />
-                <div class="flex flex-row mt-[124px] gap-4">
+                <div class="flex flex-row mt-[98px] gap-4">
                     <div class="w-40 h-11 flex flex-row border border-gray-500">
                         <button id="minusBtn"
                             class="w-10 flex justify-center items-center border-r transition-all duration-150 active:bg-red-600 active:scale-90"><img
                                 src="./asset/icon-minus.png" alt="minus.png"></button>
-                        <h2 id="count" class="w-20 flex justify-center items-center">1</h2>
+                        <h2 id="count" class="w-20 inter-bold flex justify-center items-center text-lg">1</h2>
                         <button id="plusBtn"
                             class="w-10 bg-red-500 flex justify-center items-center transition-all duration-150 active:bg-green-600 active:scale-90"><img
                                 src="./asset/icon-plus.png" alt="plus.png"></button>
 
                     </div>
-                    <button id="addToBasketBtn" class="w-[224px] h-[44px] bg-red-500 text-white rounded-lg">Add to
+                    <button id="addToBasketBtn"
+                        class="w-[224px] h-[44px] bg-red-500 text-white rounded-lg transition-all duration-150 active:bg-green-600 active:scale-90 hover:scale-110 hover:bg-red-200">Add
+                        to
                         Basket</button>
                 </div>
                 <div class="w-100 h-45 flex flex-col border border-gray-500 items-center mt-19">
@@ -82,7 +84,7 @@
                 <div class="w-5 h-10 bg-red-500 rounded-sm"></div>
                 <h1 class="text-red-600 inter-bold">Related Items</h1>
             </div>
-            <div class="relatedProductContainer" class="grid grid-cols-4 gap-5 p-5">
+            <div id="relatedProductContainer" class="grid grid-cols-4 gap-5 p-5">
             </div>
         </div>
         <div class="w-[1440px] h-[440px] flex flex-col items-center justify-center bg-black">

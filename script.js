@@ -4,44 +4,98 @@ const basketBtn = document.getElementById("basketBtn");
 const loginBtn = document.getElementById("loginBtn");
 let productLimit = 8;
 
-const checkAccesToken = async () => {
+const checkAccessToken = async () => {
   try {
-    const accesToken = localStorage.getItem("accesToken");
-    if (!accesToken) {
-      return false;
-    } else {
-      return true;
-    }
-  } catch (error) {
-    console.error("Error checking authentication:", error);
+    const token = localStorage.getItem("accessToken");
+    return token ? true : false;
+  } catch (err) {
+    console.error("Error checking authentication:", err);
     return false;
   }
 };
 
-const goLogin = async () => {
-  const hasToken = await checkAccesToken();
-
-  if (!hasToken) {
-    window.location.href = "/Project/login/login.html";
-  } else {
-    console.alert("You are already logged in");
+const refreshToken = async (callback) => {
+  try {
+    const refreshToken = localStorage.getItem("refreshToken");
+    const res = await fetch("https://ilkinibadov.com/api/v1/auth/refresh", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ refreshToken }),
+    });
+    const data = await res.json();
+    if (res.status !== 200) {
+      console.error("Refresh token expired.");
+      return;
+    }
+    localStorage.setItem("accessToken", data.accessToken);
+    if (callback) callback();
+  } catch (error) {
+    console.error("Token refresh failed:", error);
   }
 };
 
-loginBtn.addEventListener("click", goLogin);
+const addToBasket = async (product, button) => {
+  try {
+    const accessToken = localStorage.getItem("accessToken");
+
+    let response = await fetch("https://ilkinibadov.com/api/v1/basket/add", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({
+        productId: product._id,
+        count: 1,
+      }),
+    });
+
+    if (response.status === 401) {
+      console.log("401: Access token expired. Refreshing...");
+      return refreshToken(() => addToBasket(product, button));
+    }
+
+    const result = await response.json();
+    console.log("Basket response:", result);
+
+    button.innerText = "Added successfully";
+    button.classList.add("bg-green-600");
+
+    setTimeout(() => {
+      button.innerText = "Add to Basket";
+      button.classList.remove("bg-green-600");
+    }, 1200);
+  } catch (error) {
+    console.error("Error adding to basket:", error);
+  }
+};
 
 const isAuthenticated = async () => {
-  const hasToken = await checkAccesToken();
+  const hasToken = await checkAccessToken();
+  console.log("Has token:", hasToken);
 
   if (!hasToken) {
     window.location.href = "/Project/login/login.html";
   } else {
-    console.alert("User is authenticated");
     window.location.href = "/Project/basket/basket.html";
   }
 };
 
 basketBtn.addEventListener("click", isAuthenticated);
+
+const goLogin = async () => {
+  const hasToken = await checkAccessToken();
+
+  if (!hasToken) {
+    window.location.href = "/Project/login/login.html";
+  } else {
+    alert("You are already logged in");
+  }
+};
+
+loginBtn.addEventListener("click", goLogin);
 
 const getProducts = async () => {
   try {
@@ -126,32 +180,9 @@ const renderProducts = (products) => {
       "duration-500",
       "ease-out"
     );
-    button.addEventListener("click", async () => {
-      try {
-        const response = await fetch(
-          "https://ilkinibadov.com/api/v1/basket/add",
-          {
-            method: "POST",
-            headers: {
-              "Content-type": "application/json",
-            },
-            body: JSON.stringify({
-              productId: product.productId,
-              count: 1,
-            }),
-          }
-        );
-        const result = await response.json();
-        console.log("Basket response:", result);
-        button.innerText = "Added successfully";
-        button.classList.add("bg-green-600");
-        setTimeout(() => {
-          button.innerText = "Add to Basket";
-          button.classList.remove("bg-green-600");
-        }, 1200);
-      } catch (error) {
-        console.error("Error adding to basket:", error);
-      }
+    button.addEventListener("click", async (e) => {
+      e.stopPropagation();
+      await addToBasket(product, button);
     });
 
     image.src =
@@ -182,3 +213,16 @@ const init = async () => {
   renderProducts(products);
 };
 init();
+
+const categories = [
+  "electronics",
+  "clothing",
+  "books",
+  "furniture",
+  "toys",
+  "groceries",
+  "beauty",
+  "sports",
+  "automotive",
+  "other",
+];

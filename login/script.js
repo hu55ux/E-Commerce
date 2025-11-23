@@ -17,15 +17,17 @@ const loginUser = async () => {
     });
 
     const data = await res.json();
+    console.log(data);
 
     if (res.ok) {
-      const tokens = data?.[0];
-      if (!tokens || !tokens.accessToken || !tokens.refreshToken) {
+      const accessToken = data.accessToken;
+      const refreshToken = data.refreshToken;
+      if (!accessToken || !refreshToken) {
         alert("Invalid response from server");
         return;
       }
-      localStorage.setItem("accessToken", tokens.accessToken);
-      localStorage.setItem("refreshToken", tokens.refreshToken);
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
 
       window.location.href = "/Project/index.html";
     } else {
